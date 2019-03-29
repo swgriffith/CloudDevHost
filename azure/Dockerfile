@@ -20,7 +20,7 @@ RUN yarn && yarn task build:server:binary
 
 # We deploy with ubuntu so that devs have a familiar environment.
 FROM ubuntu:18.10
-WORKDIR /root/project
+WORKDIR /root/
 COPY --from=0 /src/code-server/packages/server/cli-linux-x64 /usr/local/bin/code-server
 EXPOSE 8443
 
@@ -50,12 +50,12 @@ RUN apt-get autoclean
 
 #Set up password environment variable and execution script
 ENV PASSWORD letmein
-ADD startcoder.sh /root/startcoder.sh
-RUN chmod +x /root/startcoder.sh
+ADD startcoder.sh /startcoder.sh
+RUN chmod +x /startcoder.sh
 
 RUN locale-gen en_US.UTF-8
 # We unfortunately cannot use update-locale because docker will not use the env variables
 # configured in /etc/default/locale so we need to set it manually.
 ENV LANG=en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8 
-CMD ["/bin/bash", "/root/startcoder.sh"]
+CMD ["/bin/bash", "/startcoder.sh"]
