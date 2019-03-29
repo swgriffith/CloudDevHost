@@ -2,7 +2,7 @@
 
 Inspired by [this](https://twitter.com/evill_genius/status/1109198926694043654) tweet I got around to something I'd planned to do for a very long time. Browser based VS Code editor, using [Coder](https://coder.com/) on Ubuntu as a base, and then adding in some standard tools, including the Azure CLI. 
 
-I decided to run this in Azure Web Apps for Containers, because I planned to join the container to and Azure Files Share for my and authenticate the Azure CLI to my subscription. I also planned on generating an SSH key for github, etc. With all that I needed to make sure I had TLS 1.2 with a proper cert instead of self signed, which you get from Web Apps. 
+I decided to run this in Azure Web Apps for Containers, because I planned to join the container to an Azure Files Share and authenticate the Azure CLI to my subscription. I also planned on generating an SSH key for github, etc. With all that I needed to make sure I had TLS 1.2 with a proper cert instead of self signed, which you get from Web Apps. 
 
 ## To Run
 This assumes you've already gone out and created an Azure File share and pulled the storage account name, share name and access key. 
